@@ -4,29 +4,30 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-about',
-  template:"<h1>{{ ironGrid }}<h1>",
+  template:"<h1>{{ IronGrids }}<h1>",
   styleUrls: ['./about.component.css']
 })
 
 export class AboutComponent implements OnInit {
 
-  gridData: String = "abc"
-  public ironGrid: IronGrid
+  public ironGrids: IronGrid[] = []
 
   constructor(private _ironGridService: IronGridService) {
-
+    // todo
   }
 
-  getGridInfo(id: String) {
-    console.log(">>> Call service")
-    return this._ironGridService.getGridInfo(id)
-        .subscribe(data => this.ironGrid = data)
+  getGridInfo(id: number) {
+    this._ironGridService.getGridInfo(id)
+        .subscribe(data => {
+          console.log(data);
+          
+          this.ironGrids = data
+        })
+        console.log(this.ironGrids)
   }
 
   ngOnInit() {
-    this.getGridInfo("1")
-    console.log(this.ironGrid);
-    
+    this.getGridInfo(1)
   }
 
 }
