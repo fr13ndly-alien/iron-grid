@@ -1,0 +1,1 @@
+export const defaultGateway = "http://5dee6a3cb3d17b00146a28ed.mockapi.io/iron-grid/v1/iron-grid-info/";
