@@ -1,1 +1,7 @@
-<p>about works!</p>
+
+<h1>{{ ironGrid.id | json }}</h1>
+
+<button (click)= "listGridInfo()" >List all grids</button>
+<li *ngFor = "let grid of ironGrids">
+    <p>{{ grid | json }}</p>
+</li>

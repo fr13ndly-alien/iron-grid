@@ -13,7 +13,11 @@ export class IronGridService {
 
   constructor(private http: HttpClient) { }
 
-  getGridInfo(id: number): Observable<IronGrid[]> {    
-    return this.http.get<IronGrid[]>(this._url+ id)
+  getGridInfo(id: number): Observable<IronGrid> {    
+    return this.http.get<IronGrid>(this._url+ id)
+  }
+
+  listGridInfo(): Observable<IronGrid[]> {
+    return this.http.get<IronGrid[]>(this._url)
   }
 }
